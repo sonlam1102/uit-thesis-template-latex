@@ -1,0 +1,187 @@
+\RequirePackage{setspace}
+
+\if@twoside
+ \setlength\oddsidemargin   {36.1\p@}
+ \setlength\evensidemargin  {0\p@}
+ \setlength\marginparwidth {40\p@}
+\else
+ \setlength\oddsidemargin   {36.1\p@}
+ \setlength\evensidemargin  {36.1\p@}
+ \setlength\marginparwidth  {40\p@}
+\fi
+
+\marginparsep 10pt
+\topmargin -46pt
+\headsep .1in
+\textheight 10in
+\textwidth 6in
+
+\brokenpenalty=10000
+
+\def\dept#1{\gdef\@dept{#1}}
+\def\university#1{\gdef\@university{#1}}
+\def\collegeordept#1{\gdef\@collegeordept{#1}}
+\def\faculty#1{\gdef\@faculty{#1}}
+\def\thesistitle#1{\gdef\@thesistitle{#1}}
+\def\degree#1{\gdef\@degree{#1}}
+\def\author#1{\gdef\@author{#1}}
+\def\studentid#1{\gdef\@studentid{#1}}
+\def\authorsecond#1{\gdef\@authorsecond{#1}}
+\def\studentidsecond#1{\gdef\@studentidsecond{#1}}
+\def\englishtitle#1{\gdef\@englishtitle{#1}}
+\def\degreedate#1{\gdef\@degreedate{#1}}
+\def\supervisor#1{\gdef\@supervisor{#1}}
+\def\crest#1{\gdef\@crest{#1}}
+
+\newif\iffigurespage
+\newif\iftablespage
+\figurespagetrue
+\tablespagetrue
+\def\firsttitlep{
+    \thispagestyle{empty}
+    \vspace*{-4ex}
+    \begin{center}
+	{\par{\textbf{\@university}}\par}
+	{{\textbf{\@collegeordept}}\par}
+    {{\textbf{\@faculty}}\par}
+	\vspace*{18ex}
+	{{\textbf{\@author}}\par 
+     {\textbf{\@authorsecond}}\par
+	\vspace*{9ex}}
+    {{\textbf{\@thesistitle}}\par
+    \vspace*{2ex}}
+    {{\textbf{\@title}}\par}
+    {{\textbf{\@englishtitle}}\par}
+    \vspace*{7.5ex}
+    {{\textbf{\@degree}}\par}
+    \vspace*{6ex}
+	\vfill
+	{{\textbf{\@degreedate}}}
+    \vspace{0ex}
+    \end{center}\newpage
+}
+
+\def\secondtitlep{
+    \thispagestyle{empty}
+    \vspace*{-4ex}
+    \begin{center}
+	{\par{\textbf{\@university}}\par}
+	{{\textbf{\@collegeordept}}\par}
+    {{\textbf{\@faculty}}\par}
+	\vspace*{5ex}
+	\begin{figure}[h]
+	    \centering
+	    \includegraphics[scale=0.1]{misc/uit_logo.pdf}
+	\end{figure}
+	\vspace*{5ex}
+	{{\textbf{\@author}}\par
+	{\textbf{\@authorsecond}}\par
+	\vspace*{9ex}}
+    {{\textbf{\@thesistitle}}\par
+    \vspace*{2ex}}
+    {{\textbf{\@title}}\par}
+    {{\textbf{\@englishtitle}}\par}
+    \vspace*{7.5ex}
+    {{\textbf{\@degree}}\par}
+    \vspace*{6ex}
+	{{\textbf{\@supervisor}}\par\vspace*{15mm}} 
+	\vfill
+	{{\textbf{\@degreedate}}}
+    \vspace{0ex}
+    \end{center}\newpage
+}
+
+\def\thirdtitlep{
+    \input{misc/commitee.tex}
+}
+
+\def\firstbeforepreface{
+    \pagenumbering{roman}
+    \pagestyle{plain}
+    \begin{tikzpicture}[remember picture, overlay]
+      \draw[line width = 1pt] ($(current page.north west) + (108pt,-65pt)$) rectangle ($(current page.south east) + (-56pt,56pt)$);
+    \end{tikzpicture}
+    \firsttitlep
+    \cleardoublepage
+}
+
+\def\secondbeforepreface{
+    \pagenumbering{roman}
+    \pagestyle{plain}
+    \begin{tikzpicture}[remember picture, overlay]
+      \draw[line width = 1pt] ($(current page.north west) + (108pt,-65pt)$) rectangle ($(current page.south east) + (-56pt,56pt)$);
+    \end{tikzpicture}
+    \secondtitlep
+    \cleardoublepage
+}
+
+\def\thirdbeforepreface{
+    \pagenumbering{roman}
+    \pagestyle{plain}
+    \thirdtitlep
+    \cleardoublepage
+}
+
+\def\prefacesection#1{
+    \chapter*{#1}
+    \addcontentsline{toc}{chapter}{#1}
+}
+
+\def\afterpreface{
+    \pagestyle{customfancy}
+    
+    \newpage
+    \phantomsection
+	\addcontentsline{toc}{chapter}{Lời cảm ơn}
+	\input{misc/acknowledgements}
+
+    \newpage
+    \phantomsection
+	\addcontentsline{toc}{chapter}{Mục lục} %{\contentsname}
+	\tableofcontents
+
+    \newpage
+    \phantomsection
+	\addcontentsline{toc}{chapter}{Danh mục các bảng} %{\listtablename}
+    \iftablespage
+        \listoftables
+    \fi
+ 
+    \newpage
+    \phantomsection
+	\addcontentsline{toc}{chapter}{Danh mục các hình ảnh và biểu đồ} %{\listfigurename}
+    \iffigurespage
+        \listoffigures
+    \fi
+
+    \newpage
+    \phantomsection
+    \addcontentsline{toc}{chapter}{Danh mục từ viết tắt}
+    \input{misc/abbreviation}
+
+    \newpage
+    \phantomsection
+    \addcontentsline{toc}{chapter}{Tóm tắt khóa luận}
+    \input{misc/abstraction}
+
+    \cleardoublepage
+    \pagenumbering{arabic}
+    \pagestyle{customfancy}
+}
+
+\let\@ldthebibliography\thebibliography
+\renewcommand{\thebibliography}[1]{\newpage
+                \@ldthebibliography{#1}
+\addcontentsline{toc}{chapter}{\bibname}} 
+
+\def\@endpart{\vfil\newpage
+              \if@twoside
+               \if@openright
+                \null
+                \thispagestyle{plain}%
+                \newpage
+               \fi
+              \fi
+              \if@tempswa
+                \twocolumn
+              \fi}

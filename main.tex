@@ -1,0 +1,202 @@
+\listfiles
+\documentclass[12pt]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[T1, T5]{fontenc}
+
+\usepackage{fancyhdr}
+\usepackage{geometry}
+\usepackage{caption}
+\usepackage{expl3}
+\usepackage{multido}
+\usepackage{etoolbox}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{ragged2e}
+\usepackage{IEEEtrantools}
+\usepackage{graphicx}
+\usepackage{times, latexsym, amsfonts, amssymb, amsmath, graphicx, bbm, rotating}
+\usepackage{enumitem, multirow, hhline, stmaryrd, bussproofs, mathtools, siunitx, arydshln}
+\usepackage{xcolor}
+
+\usepackage[titles]{tocloft}
+\usepackage{textcase}
+\usepackage{pgfplots}
+\usepackage{titlesec}
+\usepackage{pifont}
+\usepackage{adforn}
+\usepackage{tikz}
+\usepackage{subfig}
+\usetikzlibrary{calc}
+\usepackage{float}
+\usepackage{afterpage}
+\usepackage{lipsum}
+% \usepackage{colortbl}
+\usepackage[mathscr]{euscript}
+\usepackage[bottom,perpage]{footmisc}
+\usepackage{longtable}
+\usepackage{makecell}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+\usepackage{footmisc}
+\usepackage{pdfpages}
+\usepackage{adjustbox}
+\usepackage{acronym}
+\usepackage{placeins}
+\usepackage{stackengine}
+\usepackage{threeparttable}
+
+
+\usetikzlibrary{patterns}
+
+\captionsetup[table]{font={stretch=1.2}}
+\captionsetup[figure]{font={stretch=1.2}}
+
+\providecommand\phantomsection{}
+
+\renewcommand\cftchappresnum{{Chương }}
+\renewcommand\cftchapaftersnum{.}
+\newlength\mylen
+\settowidth\mylen{\bfseries\cftchappresnum\thechapter\cftpartaftersnum\ \ \ }
+\addtolength\cftpartnumwidth{\mylen}
+\cftsetindents{chap}{0pt}{\mylen}
+
+\setlength\headheight{32pt}
+
+\usepackage[fontsize=13pt]{scrextend}
+\usepackage{setspace}
+
+\renewcommand{\baselinestretch}{1.5}
+
+\titleformat{\chapter}[hang]{\normalfont\large\bfseries}{{\chaptertitlename} \thechapter.}{14pt}{\centering\bfseries}
+
+\titlespacing{\chapter}{0in}{-23pt}{0in}\titlespacing{\chapter}{0in}{-23pt}{0in}
+
+\titleformat*{\section}{\normalsize\bfseries}
+\titleformat*{\subsection}{\normalsize\bfseries}
+\titleformat*{\subsubsection}{\normalsize\bfseries}
+\titleformat*{\paragraph}{\normalsize\bfseries}
+\titleformat*{\subparagraph}{\normalsize\bfseries}
+
+\usepackage[maxcitenames=2, mincitenames=1, backend=biber, style=numeric, sorting=none, bibencoding=utf8, natbib=true, maxbibnames=99]{biblatex}
+
+\DefineBibliographyStrings{english}{andothers={và các cộng sự}}
+\DefineBibliographyStrings{english}{and={và}}
+\DefineBibliographyStrings{english}{pages={trang}}
+\DefineBibliographyStrings{english}{in={trong}}
+
+\addbibresource{references.bib}
+
+\usepackage[
+	colorlinks=true,
+	pdfstartview=FitV,
+	linkcolor=blue,
+	citecolor=blue,
+	urlcolor=blue,
+	breaklinks=true
+]{hyperref}
+
+\hypersetup{
+	pdfencoding=auto,
+	pdfauthor={},
+	pdfsubject={},
+	pdftitle={},
+	pdfkeywords={}
+}
+\geometry{
+	a4paper,
+	left=1.38in,
+	right=0.79in,
+	top=1.18in,
+	bottom=1.38in
+}
+
+\captionsetup[figure]{name={Hình},labelsep=period}
+\captionsetup[table]{name={Bảng},labelsep=period}
+
+\renewcommand\chaptername{Chương}
+\renewcommand\appendixname{PHỤ LỤC}
+\renewcommand\contentsname{MỤC LỤC}
+\renewcommand\listtablename{DANH MỤC CÁC BẢNG}
+\renewcommand\listfigurename{DANH MỤC CÁC HÌNH ẢNH VÀ BIỂU ĐỒ}
+\renewcommand\bibname{TÀI LIỆU THAM KHẢO}
+
+\overfullrule=2pt
+
+\fancypagestyle{customfancy}
+{
+   \fancyhf{}
+    \fancyhead[L]{\ifodd\value{page}\parbox[t]{0.985\textwidth}
+    {\Ifstr{\rightmark}{}
+    {\RaggedRight\leftmark\strut}
+    {\RaggedRight\rightmark\strut}}
+    \else\parbox[t]{0.985\textwidth}{\RaggedRight\leftmark\strut}\fi}
+    \fancyfoot[C]{\thepage}
+}
+
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\footrulewidth}{1pt}
+
+\usepackage{uit-thesis}
+% \usepackage{physics}
+\usepackage{mathtools} % for '\mathrlap' and '\DeclarePairedDelimiter' macros
+
+\makeatletter
+
+% Đổi màu các từ link đến từ danh mục từ viết tắt thành đen
+\AtBeginDocument{%
+    \renewcommand*{\AC@hyperlink}[2]{%
+    \begingroup
+      \hypersetup{hidelinks}%
+      \hyperlink{#1}{#2}%
+    \endgroup
+    }%
+}
+
+%% Switch meanings of starred and unstarred macros
+%% (see https://tex.stackexchange.com/a/278398/5001)
+\newcommand{\XDeclarePairedDelimiter}[3]{%  "X" for "exchange"
+  \expandafter\DeclarePairedDelimiter\csname RIGHT\string#1\endcsname{#2}{#3}%
+  \newcommand#1{%
+    \@ifstar{\csname RIGHT\string#1\endcsname}
+            {\@ifnextchar[{\csname RIGHT\string#1\endcsname}
+                          {\csname RIGHT\string#1\endcsname*}%
+}}}
+
+\renewcommand{\chaptermark}[1]{\markboth{\scshape\MakeLowercase{
+  \ifnum\c@secnumdepth > \m@ne \@chapapp\ \protect\resizebox{!}{1.2ex}{\thechapter}.\ \fi #1}}{}}
+
+\renewcommand{\sectionmark}[1]{\markboth{\scshape\MakeLowercase{
+  \ifnum\c@secnumdepth > \m@ne \protect\resizebox{!}{1.2ex}{\thesection}.\ \fi #1}}{}}
+
+\makeatother
+
+\let\norm\relax % undefine existing "\norm" macro
+\XDeclarePairedDelimiter{\norm}{\lVert}{\rVert}
+
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+
+\begin{document}
+
+\input{misc/cover.tex}
+
+\input{chapters/chapter1.tex}
+\input{chapters/chapter2.tex}
+% Nếu muốn thêm nội dung chương thì các bạn tạo ra các file .tex tiếp theo trong thư mục chapters và input tại đây 
+
+\begingroup
+\setlength{\emergencystretch}{8em}
+    \begin{justifying}
+        \printbibliography[title=TÀI LIỆU THAM KHẢO]
+    \end{justifying}
+\endgroup
+\addcontentsline{toc}{chapter}{Tài liệu tham khảo}
+
+\appendix
+\input{appendix/appendix_a.tex}
+\input{appendix/appendix_b.tex}
+
+\end{document}
+

@@ -1,0 +1,19 @@
+\chapter*{DANH MỤC TỪ VIẾT TẮT}
+\vspace*{1.5ex}
+
+\AtBeginEnvironment{acronym}{%
+  \renewcommand*{\aclabelfont}[1]{\textbf{\acsfont{\color{black}#1}}}}
+  
+\begin{acronym}
+    \newcommand{\blacro}[2]{\acro{#1}{\color{black}#2}}
+
+    %Thay từ viết tắt cho phù hợp %
+    % khi dùng trong nội dung thì dùng \ac{từ viết tắt} sẽ hiện cả từ
+    
+    \blacro{UIT}{Trường đại học Công nghệ Thông tin}
+    \blacro{KLTN}{Khoá luận tốt nghiệp}
+    \blacro{CBHD}{Cán bộ hướng dẫn}
+    \blacro{CBPB}{Cán bộ phản biện}
+\end{acronym}
+
+
