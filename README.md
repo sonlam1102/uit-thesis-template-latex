@@ -16,3 +16,5 @@ File main.tex: file chính để render khoá luận
 File references.bib: chứa danh mục tài liệu tham khảo trong KLTN dạng Bibtex  
 
 Các bạn có thể tải repo này về và upload lên Overleaf để có thể sử dụng template latex 
+
+LINK OVERLEAF: https://www.overleaf.com/read/dqktwchmrfdk
