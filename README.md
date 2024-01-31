@@ -1,3 +1,5 @@
+Mẫu khoá luận tốt nghiệp (KLTN) bằng Latex tham khảo dành cho các bạn SV tại Trường Đại học Công nghệ Thông tin - ĐHQG.TPHCM (UIT-VNUHCM). 
+
 Các thư mục gồm:
 
 1. Thư mục misc: chứa các file render các trang bắt buộc phải có trong KLTN như bìa (cover), lời cảm ơn (acknowledgement), các từ viết tắt (abbreviation), tóm tắt (abstraction), và trang thông tin hội đồng KLTN (commitee). Các bạn đừng xoá bất kỳ file nào hay đổi tên trong thư mục này
