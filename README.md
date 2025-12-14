@@ -1,4 +1,10 @@
 Mẫu khoá luận tốt nghiệp (KLTN) bằng Latex tham khảo dành cho các bạn SV tại Trường Đại học Công nghệ Thông tin - ĐHQG.TPHCM (UIT-VNUHCM). 
+------------------------------------------------------- 
+Mẫu cho Khoá luận tốt nghiệp: https://www.overleaf.com/read/dqktwchmrfdk
+
+Mẫu cho Luận văn Thạc sĩ: https://www.overleaf.com/read/ydnqzdbdckft#860604
+
+------------------------------------------------------- 
 
 Các thư mục gồm:
 
@@ -18,5 +24,3 @@ File main.tex: file chính để render khoá luận
 File references.bib: chứa danh mục tài liệu tham khảo trong KLTN dạng Bibtex  
 
 Các bạn có thể tải repo này về và upload lên Overleaf để có thể sử dụng template latex 
-
-LINK OVERLEAF: https://www.overleaf.com/read/dqktwchmrfdk
