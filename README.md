@@ -1,4 +1,4 @@
-Mẫu khoá luận tốt nghiệp (KLTN) bằng Latex tham khảo dành cho các bạn SV tại Trường Đại học Công nghệ Thông tin - ĐHQG.TPHCM (UIT-VNUHCM). 
+Mẫu khoá luận tốt nghiệp bằng Latex tham khảo dành cho các bạn SV tại Trường Đại học Công nghệ Thông tin - ĐHQG.TPHCM (UIT-VNUHCM). 
 ------------------------------------------------------- 
 Mẫu cho Khoá luận tốt nghiệp: https://www.overleaf.com/read/dqktwchmrfdk
 
