@@ -2,7 +2,9 @@ Mẫu khoá luận tốt nghiệp bằng Latex tham khảo dành cho các bạn 
 ------------------------------------------------------- 
 Mẫu cho Khoá luận tốt nghiệp: https://www.overleaf.com/read/dqktwchmrfdk
 
-Mẫu cho Luận văn Thạc sĩ: https://www.overleaf.com/read/ydnqzdbdckft#860604
+Mẫu cho Luận văn Thạc sĩ: https://www.overleaf.com/read/ydnqzdbdckft#860604   
+
+Mẫu cho Luận án Tiến sĩ: https://www.overleaf.com/read/vstmhgppfngh#b2dcbe  
 
 ------------------------------------------------------- 
 
